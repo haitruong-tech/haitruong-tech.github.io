@@ -1,0 +1,43 @@
+<form class="contact__form">
+  <!-- loading -->
+  <div class="status-indicator">
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- submitted -->
+  <div class="contact__form-submitted">
+    Thank you for reaching out. I will respond to your inquiry at my earliest
+    convenience.
+  </div>
+
+  <!-- error -->
+  <div class="contact__form-error">
+    Something went wrong when sending the email. Please try again.
+  </div>
+
+  <!-- default -->
+  <div class="contact__form-content">
+    <div class="contact__form-group">
+      <label class="contact__form-label" for="name">Name</label>
+      <input class="contact__form-input" name="name" id="name" type="text" />
+    </div>
+    <div class="contact__form-group">
+      <label class="contact__form-label" for="email">Email</label>
+      <input class="contact__form-input" name="email" id="email" type="text" />
+    </div>
+    <div class="contact__form-group">
+      <label class="contact__form-label" for="content">Content</label>
+      <textarea
+        class="contact__form-input"
+        rows="4"
+        name="content"
+        id="content"
+        type="text"
+      ></textarea>
+    </div>
+    <button type="submit" class="contact__form-submit">Send</button>
+  </div>
+</form>
