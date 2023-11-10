@@ -53,14 +53,17 @@ class ContactForm extends HTMLElement {
         contactForm.setAttribute("status", "loading");
 
         // TODO: deploy backend
-        // const data = new FormData(contactForm);
-        // await fetch("http://localhost:3001/mail", {
-        //   body: JSON.stringify(Object.fromEntries(data.entries())),
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // });
+        const data = new FormData(contactForm);
+        await fetch(
+          "https://mail-server-ntl.netlify.app/.netlify/functions/mail-server",
+          {
+            body: JSON.stringify(Object.fromEntries(data.entries())),
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         contactForm.setAttribute("status", "submitted");
       } catch (error) {
