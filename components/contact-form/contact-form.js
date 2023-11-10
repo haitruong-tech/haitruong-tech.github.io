@@ -59,9 +59,6 @@ class ContactForm extends HTMLElement {
           {
             body: JSON.stringify(Object.fromEntries(data.entries())),
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
           }
         );
 
