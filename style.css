@@ -52,7 +52,10 @@ body {
       rgba(255, 225, 225, 0.05),
       rgba(255, 225, 225, 0.05)
     ),
-    url("./assets/images/background.jpg") no-repeat center;
+    /* url("./assets/images/background.jpg") no-repeat center; */
+    /* http://pixboost.com/api/2/img/http://www.midday.coffee/assets/cup.jpeg/ */
+    url("https://pixboost.com/api/2/img/https://haitruongdev.com/assets/images/background.jpg/optimise?auth=Mjg1NDE5Njg2OA__")
+    no-repeat center;
   background-size: cover;
 }
 
