@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+}
+
+.header__nav {
+  display: flex;
+  padding: 1.5rem;
+}
+
+.header__logo {
+  color: #000000;
+  text-decoration: none;
+  max-width: 5.5rem;
+  word-wrap: break-word;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.header__menu {
+  margin-left: auto;
+  display: flex;
+  column-gap: 3.5rem;
+}
+
+.header__menu-item {
+  list-style: none;
+}
+
+.header__menu-link {
+  color: #000000;
+  text-decoration: none;
+  font-size: 0.875rem;
+  position: relative;
+}
+
+.header__menu-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  transition: all 200ms;
+  background: #000000;
+  height: 1px;
+  bottom: 0;
+  left: 50%;
+}
+
+.header__menu-link.active::after {
+  width: 100%;
+  margin-left: -50%;
+}
+
+.header__expand-menu-btn {
+  border: none;
+  background: none;
+  display: none;
+}
+
+.header__expand-menu-icon {
+  width: 24px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(236, 235, 237, 0.8);
+}
+
+.menu-sm__container {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  transition: all 400ms;
+  background-color: hsl(0, 10%, 10%);
+  width: 300px;
+  height: 100vh;
+}
+
+.menu-sm__close-btn {
+  cursor: pointer;
+  width: 1.5rem;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.menu-sm__item:first-child {
+  margin-top: 2.5rem;
+}
+
+.menu-sm__item {
+  list-style: none;
+}
+
+.menu-sm__link {
+  margin: 0 0.25rem;
+  padding: 1rem 1.25rem;
+  width: 100%;
+  display: block;
+  color: #eeeeee;
+  text-decoration: none;
+}
+
+.menu-sm__link.active {
+  border-left: 0.25rem solid #ffffff;
+}
+
+@media screen and (max-width: 767.99px) {
+  .header__menu {
+    display: none;
+  }
+
+  .header__expand-menu-btn {
+    margin-left: auto;
+    display: block;
+  }
+
+  .drawer-container[open] .overlay {
+    display: block;
+  }
+
+  .drawer-container[open] .menu-sm__container {
+    right: 0px;
+  }
+}

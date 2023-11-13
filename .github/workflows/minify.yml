@@ -1,0 +1,30 @@
+name: minify
+run-name: Minified by ${{github.actor}}
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  checkout-minify-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      # Install CLI tools
+      - run: npm install
+
+      # Perform minification
+      - run: rm -rf build
+      - run: npx grunt
+
+      - run: |
+          git config --global user.email "haitruong.tech@gmail.com"
+          git config --global user.name "Hai Truong"
+          git fetch && git checkout gh-pages
+          git add build
+          git commit -m "Build of ${{ github.sha }}"
+          git push origin `git subtree split --prefix build gh-pages`:gh-pages --force
