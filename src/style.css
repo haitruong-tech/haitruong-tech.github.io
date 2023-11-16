@@ -50,7 +50,7 @@ body {
     rgba(255, 225, 225, 0.05),
     rgba(255, 225, 225, 0.05)
   );
-  --url: url("https://haitruong-portfolio.imgix.net/images/background.jpg?auto=compress&fit=fill&max-w=560");
+  --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&max-w=560");
   padding: calc(var(--navbar-height) + 16vh) 0 4rem;
   min-height: fit-content;
   display: flex;
@@ -62,33 +62,33 @@ body {
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .cover {
-    --url: url("https://haitruong-portfolio.imgix.net/images/background.jpg?auto=compress&fit=fill&max-w=560&dpr=2");
+    --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&max-w=560&dpr=2");
   }
 }
 
 @media (min-width: 640px) {
   .cover {
-    --url: url("https://haitruong-portfolio.imgix.net/images/background.jpg?auto=compress&fit=fill&w=688");
+    --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=688");
   }
 }
 
 @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 640px),
   (min-resolution: 192dpi) and (min-width: 640px) {
   .cover {
-    --url: url("https://haitruong-portfolio.imgix.net/images/background.jpg?auto=compress&fit=fill&w=688&dpr=2");
+    --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=688&dpr=2");
   }
 }
 
 @media (min-width: 768px) {
   .cover {
-    --url: url("https://haitruong-portfolio.imgix.net/images/background.jpg?auto=compress&fit=fill&w=864");
+    --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=864");
   }
 }
 
 @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px),
   (min-resolution: 192dpi) and (min-width: 768px) {
   .cover {
-    --url: url("https://haitruong-portfolio.imgix.net/images/background.jpg?auto=compress&fit=fill&w=864&dpr=2");
+    --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=864&dpr=2");
   }
 }
 
