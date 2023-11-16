@@ -88,7 +88,7 @@ body {
 @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px),
   (min-resolution: 192dpi) and (min-width: 768px) {
   .cover {
-    --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=864&dpr=2");
+    --url: url("./assets/images/background.webp");
   }
 }
 
