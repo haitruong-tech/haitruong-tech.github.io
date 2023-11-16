@@ -4,7 +4,7 @@ import "./components/contact-form/contact-form.js";
 window.addEventListener("load", () => {
   const arrowDown = document.querySelector(".cover__arrow-container");
   arrowDown.addEventListener("click", () => {
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+    document.getElementById("about").scrollIntoView({ behavior: "smooth" });
   });
 });
 
