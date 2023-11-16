@@ -12,7 +12,7 @@
 @font-face {
   font-family: "Anton";
   src: local("Anton"),
-    url("../fonts/Anton/Anton-Regular.ttf") format("truetype");
+    url("../fonts/Anton/Anton-Regular-subset.ttf") format("truetype");
   font-weight: 400;
   font-display: optional;
 }
@@ -20,7 +20,7 @@
 @font-face {
   font-family: "Open Sans";
   src: local("Open Sans"),
-    url("../fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+    url("../fonts/OpenSans/OpenSans-Regular-subset.ttf") format("truetype");
   font-weight: 400;
   font-display: optional;
 }
@@ -28,7 +28,7 @@
 @font-face {
   font-family: "Open Sans";
   src: local("Open Sans"),
-    url("../fonts/OpenSans/OpenSans-Bold.ttf") format("truetype");
+    url("../fonts/OpenSans/OpenSans-Bold-subset.ttf") format("truetype");
   font-weight: 700;
   font-display: optional;
 }
