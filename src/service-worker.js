@@ -66,7 +66,7 @@ self.addEventListener("install", (event) => {
       "/script.js",
       "/assets/icons/angle-down.svg",
       "/assets/images/contact.webp",
-      "/assets/images/LI-Logo.svg",
+      "/assets/images/Li-Logo.svg",
       "/assets/images/Gmail_Logo.svg",
       "/assets/icons/menu-button.svg",
       "/assets/icons/close.svg",
@@ -82,14 +82,13 @@ self.addEventListener("install", (event) => {
       "/components/contact-form/contact-form.html",
       "/components/contact-form/contact-form.css",
       "/components/contact-form/contact-form.js",
-      "https://haitruong-portfolio.imgix.net/images/exp.webp?auto=compress&fit=fill&w=560&dpr=2",
-      "https://haitruong-portfolio.imgix.net/images/exp.webp?auto=compress&fit=fill&w=560",
+      "https://haitruong-portfolio.imgix.net/images/exp.webp?auto=compress&fit=fill&w=424&dpr=2",
+      "https://haitruong-portfolio.imgix.net/images/exp.webp?auto=compress&fit=fill&w=424",
       "https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&max-w=560",
       "https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&max-w=560&dpr=2",
       "https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=688",
       "https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=688&dpr=2",
       "https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=864",
-      "https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=864&dpr=2",
     ])
   );
 });
