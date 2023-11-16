@@ -14,6 +14,7 @@
   src: local("Anton"),
     url("./assets/fonts/Anton/Anton-Regular.ttf") format("truetype");
   font-weight: 400;
+  font-display: optional;
 }
 
 @font-face {
@@ -21,6 +22,7 @@
   src: local("Open Sans"),
     url("./assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
   font-weight: 400;
+  font-display: optional;
 }
 
 @font-face {
@@ -28,6 +30,7 @@
   src: local("Open Sans"),
     url("./assets/fonts/OpenSans/OpenSans-Bold.ttf") format("truetype");
   font-weight: 700;
+  font-display: optional;
 }
 
 html,
@@ -109,6 +112,7 @@ body {
 }
 
 .cover__arrow-down {
+  height: 1rem;
   width: 3rem;
   animation: arrowDown 1.5s infinite;
 }
@@ -191,6 +195,7 @@ body {
 }
 
 .exp__img {
+  aspect-ratio: 2 / 3;
   width: 100%;
 }
 
@@ -221,6 +226,7 @@ body {
 }
 
 .project__img {
+  aspect-ratio: 1.87 / 1;
   width: 100%;
 }
 
@@ -303,13 +309,13 @@ body {
   column-gap: 0.5rem;
 }
 
-.contact__li-container {
+/* .contact__li-container {
   width: 1.5rem;
 }
 
 .contact__li-img {
   width: 100%;
-}
+} */
 
 .contact__hr {
   height: 1px;
