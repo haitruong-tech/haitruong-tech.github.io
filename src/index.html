@@ -4,8 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hai Truong Portfolio</title>
-    <!-- TODO: Split stylesheets -->
-    <link rel="stylesheet" href="style.css" />
+    <!-- Normal stylesheets -->
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/style-md.css"
+      media="(min-width: 640px)"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/style-lg.css"
+      media="(min-width: 768px)"
+    />
+    <!-- retina stylesheets -->
+    <link
+      rel="stylesheet"
+      href="./assets/styles/style-retina.css"
+      media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/style-retina-md.css"
+      media="(-webkit-min-device-pixel-ratio: 2) and (min-width: 640px), (min-resolution: 192dpi) and (min-width: 640px)"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/style-retina-lg.css"
+      media="(-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), (min-resolution: 192dpi) and (min-width: 768px)"
+    />
     <!-- preload fonts -->
     <link
       rel="preload"
@@ -27,6 +53,43 @@
       as="font"
       type="font/ttf"
       crossorigin="anonymous"
+    />
+    <!-- preload images -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&max-w=560"
+      media="(max-width: 639.99px) and (-webkit-device-pixel-ratio: 1)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=688"
+      media="(min-width: 640px) and (max-width: 767.99px) and (-webkit-device-pixel-ratio: 1)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=864"
+      media="(min-width: 768px) and (-webkit-device-pixel-ratio: 1)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&max-w=560&dpr=2"
+      media="(-webkit-min-device-pixel-ratio: 2) and (max-width: 639.99px), (min-resolution: 192dpi) and (max-width: 639.99px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=688&dpr=2"
+      media="(-webkit-min-device-pixel-ratio: 2) and (min-width: 640px) and (max-width: 767.99px), (min-resolution: 192dpi) and (min-width: 640px) and (max-width: 767.99px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/images/background.webp"
+      media="(-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), (min-resolution: 192dpi) and (min-width: 768px)"
     />
   </head>
   <body>
@@ -293,7 +356,7 @@
             >
               <img
                 class="contact__li-img"
-                src="./assets/images/Li-Logo.svg"
+                src="./assets/icons/Li-Logo.svg"
                 alt="LinkedIn Logo"
                 width="24px"
                 height="20px"
@@ -305,7 +368,7 @@
             <a href="mailto:haitruong.tech@gmail.com">
               <img
                 class="contact__li-img"
-                src="./assets/images/Gmail_Logo.svg"
+                src="./assets/icons/Gmail_Logo.svg"
                 alt="Gmail Logo"
                 width="24px"
                 height="18px"

@@ -12,7 +12,7 @@
 @font-face {
   font-family: "Anton";
   src: local("Anton"),
-    url("./assets/fonts/Anton/Anton-Regular.ttf") format("truetype");
+    url("../fonts/Anton/Anton-Regular.ttf") format("truetype");
   font-weight: 400;
   font-display: optional;
 }
@@ -20,7 +20,7 @@
 @font-face {
   font-family: "Open Sans";
   src: local("Open Sans"),
-    url("./assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+    url("../fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-display: optional;
 }
@@ -28,7 +28,7 @@
 @font-face {
   font-family: "Open Sans";
   src: local("Open Sans"),
-    url("./assets/fonts/OpenSans/OpenSans-Bold.ttf") format("truetype");
+    url("../fonts/OpenSans/OpenSans-Bold.ttf") format("truetype");
   font-weight: 700;
   font-display: optional;
 }
@@ -51,7 +51,8 @@ body {
     rgba(255, 225, 225, 0.05)
   );
   --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&max-w=560");
-  padding: calc(var(--navbar-height) + 16vh) 0 4rem;
+  padding-top: calc(var(--navbar-height) + 2vh);
+  padding-bottom: 2rem;
   min-height: fit-content;
   display: flex;
   flex-direction: column;
@@ -60,54 +61,22 @@ body {
   background-size: cover;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .cover {
-    --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&max-w=560&dpr=2");
-  }
-}
-
-@media (min-width: 640px) {
-  .cover {
-    --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=688");
-  }
-}
-
-@media (-webkit-min-device-pixel-ratio: 2) and (min-width: 640px),
-  (min-resolution: 192dpi) and (min-width: 640px) {
-  .cover {
-    --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=688&dpr=2");
-  }
-}
-
-@media (min-width: 768px) {
-  .cover {
-    --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=864");
-  }
-}
-
-@media (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px),
-  (min-resolution: 192dpi) and (min-width: 768px) {
-  .cover {
-    --url: url("./assets/images/background.webp");
-  }
-}
-
 .cover__title {
-  font-size: 10rem;
+  font-size: 4rem;
   text-transform: uppercase;
   font-family: "Anton", sans-serif;
   letter-spacing: 1.5rem;
 }
 
 .cover__subtitle {
-  margin-top: 6rem;
+  margin-top: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .cover__arrow-container {
   cursor: pointer;
-  margin-top: 8rem;
+  margin-top: 4rem;
   padding-bottom: 20px;
 }
 
@@ -342,58 +311,5 @@ body {
   }
   95% {
     transform: translateY(20px);
-  }
-}
-
-@media (max-width: 1023.99px) {
-  .cover {
-    padding-top: calc(var(--navbar-height) + 8vh);
-  }
-
-  .cover__subtitle {
-    margin-top: 3rem;
-  }
-
-  .cover__arrow-container {
-    margin-top: 6rem;
-  }
-}
-
-@media (max-width: 767.99px) {
-}
-
-@media (max-width: 639.99px) {
-  .cover {
-    padding-top: calc(var(--navbar-height) + 4vh);
-  }
-
-  .cover__title {
-    font-size: 6rem;
-  }
-
-  .cover__subtitle {
-    margin-top: 2rem;
-  }
-
-  .cover__arrow-container {
-    margin-top: 4rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .cover {
-    padding-top: calc(var(--navbar-height) + 2vh);
-  }
-
-  .cover__title {
-    font-size: 4rem;
-  }
-
-  .cover__subtitle {
-    margin-top: 1rem;
-  }
-
-  .cover__arrow-container {
-    margin-top: 4rem;
   }
 }
