@@ -15,19 +15,6 @@ class DrawerMenu extends HTMLElement {
         const template = document.createElement("template");
         template.innerHTML = templateText;
         const templateClone = document.importNode(template.content, true);
-
-        const drawerMenuCSS = await fetch(
-          "./components/drawer-menu/drawer-menu.css"
-        );
-        if (!drawerMenuCSS.ok) {
-          console.error("failed to fetch CSS");
-          return;
-        }
-        const cssText = await drawerMenuCSS.text();
-        const style = document.createElement("style");
-        style.textContent = cssText;
-        templateClone.appendChild(style);
-
         this.shadowRoot.appendChild(templateClone);
       } else {
         console.error("Failed to fetch the template file.");
@@ -64,7 +51,8 @@ class DrawerMenu extends HTMLElement {
         const offset = 48; // create offset to prevent 1px differences show different active
         if (
           positions[i] < window.scrollY + offset &&
-          (positions[i + 1] > window.scrollY + offset || positions[i + 1] == null)
+          (positions[i + 1] > window.scrollY + offset ||
+            positions[i + 1] == null)
         ) {
           links[i].classList.add("active");
           smLinks[i].classList.add("active");

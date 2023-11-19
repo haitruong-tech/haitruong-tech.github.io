@@ -1,4 +1,4 @@
-const base_url = "./components/contact-form";
+const base_url = "/components/contact-form";
 
 class ContactForm extends HTMLElement {
   static observedAttributes = ["state"];
@@ -18,17 +18,6 @@ class ContactForm extends HTMLElement {
         const template = document.createElement("template");
         template.innerHTML = templateText;
         const templateClone = document.importNode(template.content, true);
-
-        const drawerMenuCSS = await fetch(`${base_url}/contact-form.css`);
-        if (!drawerMenuCSS.ok) {
-          console.error("failed to fetch CSS");
-          return;
-        }
-        const cssText = await drawerMenuCSS.text();
-        const style = document.createElement("style");
-        style.textContent = cssText;
-        templateClone.appendChild(style);
-
         this.shadowRoot.appendChild(templateClone);
       } else {
         console.error("Failed to fetch the template file.");
