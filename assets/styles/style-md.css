@@ -1,0 +1,12 @@
+.cover {
+  --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=688");
+  padding-top: calc(var(--navbar-height) + 8vh);
+}
+
+.cover__subtitle {
+  margin-top: 3rem;
+}
+
+.cover__arrow-container {
+  margin-top: 6rem;
+}

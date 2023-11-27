@@ -1,0 +1,5 @@
+@media (min-width: 640px) {
+  .cover {
+    --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=688&dpr=2");
+  }
+}
