@@ -25,6 +25,14 @@ class DrawerMenu extends HTMLElement {
   }
 
   attachEvents = () => {
+    // Add background to header
+    const header = this.shadowRoot.querySelector(".header");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) header.classList.add("header--bg");
+      else header.classList.remove("header--bg");
+    })
+
     // Open/close drawer events
     const expandBtn = this.shadowRoot.querySelector(".header__expand-menu-btn");
     const drawerContainer = this.shadowRoot.querySelector(".drawer-container");
@@ -42,26 +50,39 @@ class DrawerMenu extends HTMLElement {
     const links = this.shadowRoot.querySelectorAll(".header__menu-link");
     const smLinks = this.shadowRoot.querySelectorAll(".menu-sm__link");
     const sectionIDs = Array.from(links).map((link) => link.href.split("#")[1]);
-    const positions = sectionIDs.map((sectionID) => {
-      const el = document.querySelector(`#${sectionID}`);
-      return window.scrollY + el.getBoundingClientRect().top;
-    });
+    const elements = sectionIDs.map((sectionID) =>
+      document.querySelector(`#${sectionID}`)
+    );
+    let currentActive = -1,
+      direction = "down",
+      lastPos = window.scrollY;
+
     window.addEventListener("scroll", (event) => {
-      for (let i = 0; i < positions.length; i++) {
-        const offset = 48; // create offset to prevent 1px differences show different active
-        if (
-          positions[i] < window.scrollY + offset &&
-          (positions[i + 1] > window.scrollY + offset ||
-            positions[i + 1] == null)
-        ) {
-          links[i].classList.add("active");
-          smLinks[i].classList.add("active");
-        } else {
-          links[i].classList.remove("active");
-          smLinks[i].classList.remove("active");
-        }
+      if (window.scrollY - lastPos > 0) {
+        direction = "down";
+      } else {
+        direction = "up";
       }
-      // if (window.scrollY) {}
+      lastPos = window.scrollY;
+      links[currentActive]?.classList.remove("active");
+      smLinks[currentActive]?.classList.remove("active");
+      if (
+        currentActive < elements.length - 1 &&
+        direction === "down" &&
+        elements[currentActive + 1].getBoundingClientRect().top <
+          elements[currentActive + 1].offsetHeight / 3
+      ) {
+        currentActive++;
+      } else if (
+        direction === "up" &&
+        elements[currentActive]?.getBoundingClientRect().top >
+          elements[currentActive]?.offsetHeight / 3 &&
+        currentActive >= 0
+      ) {
+        currentActive--;
+      }
+      links[currentActive]?.classList.add("active");
+      smLinks[currentActive]?.classList.add("active");
     });
   };
 

@@ -1,3 +1,8 @@
+.container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .cover {
   --url: url("https://haitruong-portfolio.imgix.net/images/background.webp?auto=compress&fit=fill&w=864");
   padding: calc(var(--navbar-height) + 16vh) 0 4rem;
@@ -13,4 +18,68 @@
 
 .cover__arrow-container {
   margin-top: 8rem;
+}
+
+.about {
+  padding: 8rem 0;
+}
+
+.about__title {
+  font-size: 5rem;
+}
+
+.exp__website {
+  display: block;
+}
+
+.exp__point {
+  margin-bottom: 4rem;
+}
+
+.exp__title {
+  font-size: 2.5rem;
+}
+
+.exp__img-container {
+  display: block;
+}
+
+.project__details-title {
+  font-size: 1.75rem;
+  padding: 0.5rem 0;
+}
+
+.project__table {
+  display: table;
+}
+
+.contact {
+  padding: 6rem 0 4rem;
+}
+
+.contact__form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 4rem;
+  margin: 8rem 0 12rem;
+}
+
+.contact__img-container {
+  display: block;
+}
+
+.contact__footer {
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.contact__phone {
+  width: 1.5rem;
+  white-space: nowrap;
+  transform: rotate(90deg) translateX(-8rem);
+}
+
+.contact__title {
+  font-size: 2.5rem;
 }

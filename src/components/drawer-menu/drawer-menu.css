@@ -6,10 +6,16 @@
 
 .header {
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   right: 0;
   height: var(--navbar-height);
+  transition: all 0.2s;
+}
+
+.header--bg .header__menu {
+  background-color: rgba(243, 244, 246, 0.8);
 }
 
 .header__nav {
@@ -20,17 +26,22 @@
 .header__logo {
   color: #000000;
   text-decoration: none;
-  max-width: 5.5rem;
+  max-width: 6.5rem;
   word-wrap: break-word;
   text-transform: uppercase;
   font-size: 0.875rem;
   font-weight: 700;
+  padding: 4px 8px;
 }
 
 .header__menu {
   margin-left: auto;
   display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  border-radius: 4px;
   column-gap: 3.5rem;
+  transition: all 0.2s;
 }
 
 .header__menu-item {
@@ -122,6 +133,11 @@
 }
 
 @media screen and (max-width: 767.99px) {
+  .header--bg .header__logo {
+    background: rgba(243, 244, 246, 0.8);
+    border-radius: 4px;
+  }
+
   .header__menu {
     display: none;
   }

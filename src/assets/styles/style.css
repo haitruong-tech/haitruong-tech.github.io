@@ -43,6 +43,8 @@ body {
 .container {
   max-width: 50rem;
   margin: 0 auto;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
 
 .cover {
@@ -88,11 +90,11 @@ body {
 
 .about {
   text-align: center;
-  padding: 8rem 0;
+  padding: 4rem 0;
 }
 
 .about__title {
-  font-size: 5rem;
+  font-size: 3rem;
   font-family: "Anton", sans-serif;
   letter-spacing: 0.5rem;
 }
@@ -115,16 +117,18 @@ body {
   padding: 1rem 1.5rem;
   font-size: 1rem;
   cursor: pointer;
+  display: inline-block;
 }
 
 .exp {
-  margin-top: 6rem;
+  margin-top: 3rem;
   display: flex;
   align-items: center;
   column-gap: 4rem;
 }
 
 .exp__website {
+  display: none;
   width: 1rem;
   transform: rotate(-90deg) translateX(-8rem);
   text-transform: uppercase;
@@ -139,7 +143,7 @@ body {
 }
 
 .exp__point {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .exp__github-link {
@@ -148,7 +152,7 @@ body {
 }
 
 .exp__title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-family: "Anton", sans-serif;
 }
 
@@ -163,6 +167,11 @@ body {
   padding-right: 1rem;
 }
 
+.exp__img-container {
+  display: none;
+  text-align: center;
+}
+
 .exp__img {
   aspect-ratio: 2 / 3;
   width: 100%;
@@ -173,15 +182,16 @@ body {
 }
 
 .project__title {
-  font-size: 2.5rem;
+  font-size: 2rem;
+  text-transform: uppercase;
   padding: 0.5rem 0;
   font-family: "Anton", sans-serif;
   letter-spacing: 0.5rem;
 }
 
 .project__details-title {
-  font-size: 2.5rem;
-  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  padding: 0.5rem 0 0;
   border-bottom: 2px solid #000000;
   text-transform: uppercase;
 }
@@ -203,12 +213,17 @@ body {
   margin-top: 2rem;
 }
 
-.project__title {
-  font-size: 2rem;
-  text-transform: uppercase;
+.project__table {
+  display: none;
+  margin-top: 0.5rem;
 }
 
-.project__table {
+.project__role {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+}
+
+.project__description {
   margin-top: 0.5rem;
 }
 
@@ -239,24 +254,23 @@ body {
 }
 
 .contact {
-  padding: 12rem 0 4rem;
+  padding: 4rem 0;
 }
 
 .contact__title {
   text-transform: uppercase;
-  font-size: 0.875rem;
+  /* font-size: 1.5rem; */
+  font-size: 2rem;
+  font-family: "Anton", sans-serif;
   font-weight: 400;
 }
 
 .contact__form-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 8rem 0 12rem;
-  column-gap: 4rem;
+  margin: 2rem 0;
 }
 
 .contact__img-container {
+  display: none;
   width: 12rem;
   height: 12rem;
 }
@@ -270,7 +284,8 @@ body {
 
 .contact__footer {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column-reverse;
+  row-gap: 0.5rem;
 }
 
 .contact__social-media {
@@ -292,11 +307,12 @@ body {
 }
 
 .contact__phone {
-  width: 1.5rem;
-  white-space: nowrap;
-  transform: rotate(90deg) translateX(-8rem);
   color: #000;
   text-decoration: none;
+  /* width: 1.5rem;
+  white-space: nowrap;
+  transform: rotate(90deg) translateX(-8rem);
+   */
 }
 
 @keyframes arrowDown {
