@@ -25,57 +25,62 @@ const t = useTranslations(lang);
 ---
 
 <Base title={t('ideas.title')} description={t('ideas.description')}>
-  <h1>{t('ideas.heading')}</h1>
-  <p>
-    {t('ideas.p1')}<strong>{t('ideas.p1.strong')}</strong>
-  </p>
-  <p>{t('ideas.p2')}</p>
-  {
-    lang === 'en' && (
-      <p lang="vi" class="vi-note">
-        🇻🇳 Bạn cứ góp ý bằng tiếng Việt thoải mái nhé — mình đọc hết!
-      </p>
-    )
-  }
+  <section class="ideas-hero">
+    <span class="badge">{t('ideas.description')}</span>
+    <h1>{t('ideas.heading')}</h1>
+    <p class="lead">
+      {t('ideas.p1')}<strong>{t('ideas.p1.strong')}</strong>
+    </p>
+    <p class="lead">{t('ideas.p2')}</p>
+    {
+      lang === 'en' && (
+        <p lang="vi" class="vi-note">
+          🇻🇳 Bạn cứ góp ý bằng tiếng Việt thoải mái nhé — mình đọc hết!
+        </p>
+      )
+    }
+  </section>
 
-  {
-    configured ? (
-      <script
-        is:inline
-        src="https://giscus.app/client.js"
-        data-repo={GISCUS.repo}
-        data-repo-id={GISCUS.repoId}
-        data-category={GISCUS.category}
-        data-category-id={GISCUS.categoryId}
-        data-mapping="specific"
-        data-term="blog-ideas"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang={lang}
-        crossorigin="anonymous"
-        async
-      />
-    ) : (
-      <div class="setup-note">
-        <p>
+  <section class="panel discussion">
+    {
+      configured ? (
+        <script
+          is:inline
+          src="https://giscus.app/client.js"
+          data-repo={GISCUS.repo}
+          data-repo-id={GISCUS.repoId}
+          data-category={GISCUS.category}
+          data-category-id={GISCUS.categoryId}
+          data-mapping="specific"
+          data-term="blog-ideas"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="transparent_dark"
+          data-lang={lang}
+          crossorigin="anonymous"
+          async
+        />
+      ) : (
+        <p class="setup-note">
           <strong>Suggestions box coming soon.</strong> (Owner: follow the
           giscus setup steps in <code>src/components/Ideas.astro</code> to
           enable it.)
         </p>
-      </div>
-    )
-  }
+      )
+    }
+  </section>
 </Base>
 
 <style>
-  .vi-note { color: var(--muted); }
-  .setup-note {
-    border: 1px dashed var(--border);
-    border-radius: 8px;
-    padding: 0.25rem 1rem;
-    color: var(--muted);
+  .ideas-hero { padding: 2.5rem 0 2.5rem; }
+  .ideas-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    margin: 1.2rem 0 1rem;
   }
+  .lead { max-width: 44rem; margin: 0.5rem 0; }
+  .vi-note { color: var(--meta); font-size: 0.95rem; margin-top: 1rem; }
+  .discussion { max-width: 52rem; }
+  .setup-note { margin: 0; color: var(--muted); }
 </style>
