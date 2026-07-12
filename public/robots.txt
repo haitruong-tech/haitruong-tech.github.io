@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://haitruong-tech.github.io/sitemap-index.xml
