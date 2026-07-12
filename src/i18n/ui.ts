@@ -8,8 +8,8 @@ export type Lang = keyof typeof languages;
 export const defaultLang: Lang = 'en';
 
 const en = {
-  'site.name': "Nick's Tech Blog",
-  'site.title': "Nick's Tech Blog · Fullstack JavaScript & Side Projects",
+  'site.name': 'Hai Truong',
+  'site.title': 'Hai Truong · Fullstack JavaScript & Side Projects',
   'site.description': "Nick's notes on software and side projects.",
   'nav.blog': 'Blog',
   'nav.ideas': 'Suggest an idea',
@@ -38,7 +38,7 @@ const en = {
     "If you're into JavaScript, product engineering, or just curious what learning in public looks like, stick around. New posts land in both Vietnamese and English, and the topics often come straight from reader suggestions — the ideas page genuinely decides what I build next, so don't be shy about dropping yours in.",
   'about.stackLabel': 'Main stack',
   'about.projectsLabel': 'Working on',
-  'ideas.title': "Suggest an idea · Nick's Tech Blog",
+  'ideas.title': 'Suggest what I should build next · Hai Truong',
   'ideas.description': 'Tell me what I should build or write about next.',
   'ideas.heading': 'What should I build next? 🤔',
   'ideas.p1':
@@ -49,8 +49,8 @@ const en = {
 } as const;
 
 const vi: Record<keyof typeof en, string> = {
-  'site.name': 'Blog Webdev của Nick',
-  'site.title': 'Blog Webdev của Nick · Fullstack JavaScript & Side Project',
+  'site.name': 'Blog của Hai Truong',
+  'site.title': 'Blog của Hai Truong · Fullstack JavaScript & Side Project',
   'site.description': 'Ghi chép của Nick về phần mềm và side project.',
   'nav.blog': 'Blog',
   'nav.ideas': 'Góp ý tưởng',
@@ -80,7 +80,7 @@ const vi: Record<keyof typeof en, string> = {
     'Nếu bạn thích JavaScript, thích chuyện xây sản phẩm, hoặc đơn giản tò mò học công khai trông như thế nào, thì ở lại chơi nhé. Bài mới luôn có cả tiếng Việt lẫn tiếng Anh, và chủ đề thường đến thẳng từ góp ý của độc giả — trang ý tưởng quyết định thật sự thứ mình làm tiếp theo, nên đừng ngại thả ý tưởng của bạn vào đó.',
   'about.stackLabel': 'Stack chính',
   'about.projectsLabel': 'Đang làm',
-  'ideas.title': 'Góp ý tưởng · Blog Webdev của Nick',
+  'ideas.title': 'Góp ý tưởng · Blog của Hai Truong',
   'ideas.description': 'Nói cho mình biết nên làm gì hoặc viết gì tiếp theo.',
   'ideas.heading': 'Mình nên làm gì tiếp theo? 🤔',
   'ideas.p1': 'Đôi khi mình thật sự không biết nên làm gì. Thay vì tự đoán, mình hỏi thẳng bạn: ',

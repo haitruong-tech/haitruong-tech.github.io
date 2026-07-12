@@ -29,7 +29,7 @@ const jsonLd = schema ?? {
   description: t('site.description'),
   url: new URL(localizePath('/', lang), Astro.site).toString(),
   inLanguage: lang,
-  author: { '@type': 'Person', name: 'Nick', url: Astro.site?.toString() },
+  author: { '@type': 'Person', name: 'Hai Truong', url: Astro.site?.toString() },
 };
 
 const otherLang = (Object.keys(languages) as Lang[]).find((l) => l !== lang)!;
