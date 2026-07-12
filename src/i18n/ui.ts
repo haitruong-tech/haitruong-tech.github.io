@@ -15,7 +15,7 @@ const en = {
   'home.kicker': 'Software · Side projects · Learning in public',
   'home.greeting': "Hi, I'm Nick 👋",
   'home.intro':
-    'I write about software, side projects, and things I learn along the way. Posts are in Vietnamese or English — whichever fits best.',
+    "I'm a fullstack JavaScript developer. This is where I write about side projects and things I learn along the way — in Vietnamese or English, whichever fits.",
   'home.ideas.before': "Out of ideas? Me too, sometimes. That's why there's a page where ",
   'home.ideas.link': 'you can tell me what to build next',
   'home.ideas.after': '.',
@@ -43,7 +43,7 @@ const vi: Record<keyof typeof en, string> = {
   'home.kicker': 'Software · Side projects · Learning in public',
   'home.greeting': 'Chào, mình là Nick 👋',
   'home.intro':
-    'Mình viết về phần mềm, side project và những thứ học được trên đường. Bài viết bằng tiếng Việt hoặc tiếng Anh — tuỳ chủ đề.',
+    'Mình là fullstack JavaScript developer. Đây là nơi mình viết về side project và những thứ học được trên đường — bằng tiếng Việt hoặc tiếng Anh, tuỳ chủ đề.',
   'home.ideas.before': 'Hết ý tưởng? Đôi khi mình cũng vậy. Nên mới có một trang để ',
   'home.ideas.link': 'bạn nói mình nên làm gì tiếp theo',
   'home.ideas.after': '.',
