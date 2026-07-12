@@ -12,7 +12,7 @@ const en = {
   'nav.blog': 'Blog',
   'nav.ideas': 'Suggest an idea',
   'footer.builtWith': 'Built with Astro',
-  'home.kicker': 'Software · Side projects · Learning in public',
+  'home.kicker': 'Webdev · Side projects · Learning in public',
   'home.greeting': "Hi, I'm Nick 👋",
   'home.intro':
     "I'm a fullstack JavaScript developer. This is where I write about side projects and things I learn along the way — in Vietnamese or English, whichever fits.",
@@ -40,7 +40,7 @@ const vi: Record<keyof typeof en, string> = {
   'nav.ideas': 'Góp ý tưởng',
   'footer.builtWith': 'Dựng bằng Astro',
   // Intentionally kept in English on both locales (owner's preference).
-  'home.kicker': 'Software · Side projects · Learning in public',
+  'home.kicker': 'Webdev · Side projects · Learning in public',
   'home.greeting': 'Chào, mình là Nick 👋',
   'home.intro':
     'Mình là fullstack JavaScript developer. Đây là nơi mình viết về side project và những thứ học được trên đường — bằng tiếng Việt hoặc tiếng Anh, tuỳ chủ đề.',
