@@ -16,7 +16,7 @@ const en = {
   'home.kicker': 'Webdev · Side projects · Learning in public',
   'home.greeting': "Hi, I'm Nick 👋",
   'home.intro':
-    "I'm a fullstack JavaScript developer. This is where I write about side projects and things I learn along the way — in Vietnamese or English, whichever fits.",
+    "I'm a fullstack JavaScript developer. This is where I write about side projects and things I learn along the way — in Vietnamese or English, whichever fits. Expect build logs, lessons learned, and the occasional rabbit hole.",
   'home.ideas.before': "Out of ideas? Me too, sometimes. That's why there's a page where ",
   'home.ideas.link': 'you can tell me what to build next',
   'home.ideas.after': '.',
@@ -25,6 +25,16 @@ const en = {
   'home.stats.languages': 'Languages',
   'home.stats.ideas': 'Ideas welcome',
   'post.read': 'Read',
+  'about.badge': 'About me',
+  'about.heading': 'A bit about me',
+  'about.p1':
+    "By day I'm a fullstack developer at Golden Owl Solutions, where I also mentor junior developers and serve as vice leader of the dev team — reviewing code, unblocking teammates, and helping people grow is a big part of what I enjoy. My toolbox is JavaScript end to end: Nuxt, Vue and React on the frontend; Node, Express and NestJS on the backend.",
+  'about.p2':
+    "Right now most of my time goes into real estate analytics — products that turn messy property data into something people can actually use:",
+  'about.p3':
+    "Outside of work: an IELTS 7.0 certificate, a habit of teaching myself whatever looks interesting, a weakness for music with a hook that won't let go, and a piano I'm about to start learning. This blog is where all of that leaks out — and if a post here saves you an afternoon of debugging, it did its job.",
+  'about.stackLabel': 'Main stack',
+  'about.projectsLabel': 'Currently building',
   'ideas.title': "Suggest an idea · Nick's Tech Blog",
   'ideas.description': 'Tell me what I should build or write about next.',
   'ideas.heading': 'What should I build next? 🤔',
@@ -45,7 +55,7 @@ const vi: Record<keyof typeof en, string> = {
   'home.kicker': 'Webdev · Side projects · Learning in public',
   'home.greeting': 'Chào, mình là Nick 👋',
   'home.intro':
-    'Mình là fullstack JavaScript developer. Đây là nơi mình viết về side project và những thứ học được trên đường — bằng tiếng Việt hoặc tiếng Anh, tuỳ chủ đề.',
+    'Mình là fullstack JavaScript developer. Đây là nơi mình viết về side project và những thứ học được trên đường — bằng tiếng Việt hoặc tiếng Anh, tuỳ chủ đề. Sẽ có build log, bài học rút ra, và thỉnh thoảng một cái hố mình lỡ sa chân vào.',
   'home.ideas.before': 'Hết ý tưởng? Đôi khi mình cũng vậy. Nên mới có một trang để ',
   'home.ideas.link': 'bạn nói mình nên làm gì tiếp theo',
   'home.ideas.after': '.',
@@ -54,6 +64,16 @@ const vi: Record<keyof typeof en, string> = {
   'home.stats.languages': 'Ngôn ngữ',
   'home.stats.ideas': 'Ý tưởng chờ bạn',
   'post.read': 'Đọc',
+  'about.badge': 'Về mình',
+  'about.heading': 'Đôi chút về mình',
+  'about.p1':
+    'Ban ngày mình là fullstack developer tại Golden Owl Solutions, kiêm mentor cho các bạn junior và vice leader của team dev — review code, gỡ vướng cho đồng đội và nhìn mọi người tiến bộ là phần mình thích nhất của công việc. Đồ nghề là JavaScript từ đầu tới cuối: Nuxt, Vue, React phía frontend; Node, Express, NestJS phía backend.',
+  'about.p2':
+    'Hiện tại phần lớn thời gian mình dành cho real estate analytics — những sản phẩm biến dữ liệu bất động sản lộn xộn thành thứ dùng được:',
+  'about.p3':
+    'Ngoài công việc: IELTS 7.0, thói quen tự học bất cứ thứ gì trông thú vị, mê những bản nhạc có giai điệu lôi cuốn không dứt ra được, và một cây piano sắp bắt đầu học. Blog này là nơi tất cả những thứ đó tràn ra — và nếu một bài viết ở đây giúp bạn tiết kiệm được một buổi chiều debug thì nó đã hoàn thành nhiệm vụ.',
+  'about.stackLabel': 'Stack chính',
+  'about.projectsLabel': 'Đang làm',
   'ideas.title': 'Góp ý tưởng · Blog của Nick',
   'ideas.description': 'Nói cho mình biết nên làm gì hoặc viết gì tiếp theo.',
   'ideas.heading': 'Mình nên làm gì tiếp theo? 🤔',

@@ -8,6 +8,14 @@ const t = useTranslations(lang);
 
 const posts = await getPosts(lang);
 const langCount = Object.keys(languages).length;
+
+// Language-neutral proper nouns — not dictionary material.
+const STACK = ['Nuxt', 'Vue', 'React', 'Node', 'Express', 'NestJS'];
+const PROJECTS = [
+  { name: 'tech-rea.com', url: 'https://tech-rea.com/' },
+  { name: '360.8prop.com', url: 'https://360.8prop.com/' },
+  { name: 'real-agent.ai', url: 'https://real-agent.ai/' },
+];
 ---
 
 <Base title={t('site.name')}>
@@ -37,6 +45,30 @@ const langCount = Object.keys(languages).length;
         <span class="label">{t('home.stats.ideas')}</span>
       </div>
     </div>
+  </section>
+
+  <section class="about">
+    <span class="badge">{t('about.badge')}</span>
+    <h2>{t('about.heading')}</h2>
+    <p class="about-text">{t('about.p1')}</p>
+    <p class="label">{t('about.stackLabel')}</p>
+    <div class="chips">
+      {STACK.map((tech) => <span class="badge">{tech}</span>)}
+    </div>
+    <p class="about-text">{t('about.p2')}</p>
+    <div class="projects">
+      {
+        PROJECTS.map((project) => (
+          <a href={project.url} target="_blank" rel="noopener" class="project-card">
+            <span class="project-label">{t('about.projectsLabel')}</span>
+            <span class="project-name">
+              {project.name} <span class="arrow">↗</span>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+    <p class="about-text">{t('about.p3')}</p>
   </section>
 
   <section class="posts-section">
@@ -98,6 +130,39 @@ const langCount = Object.keys(languages).length;
   .plus { color: var(--accent); }
   .label { color: var(--meta); font-size: 0.85rem; }
 
+  .about {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .about h2 { font-size: 1.9rem; margin: 0.9rem 0 0.5rem; }
+  .about-text { max-width: 46rem; margin: 0.9rem 0; }
+  .label {
+    color: var(--meta);
+    font-size: 0.85rem;
+    margin: 1.4rem 0 0.5rem;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+    margin: 1.2rem 0 1.6rem;
+  }
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
+    transition: border-color 0.15s ease;
+  }
+  .project-card:hover { border-color: var(--border-strong); text-decoration: none; }
+  .project-label { color: var(--meta); font-size: 0.78rem; }
+  .project-name { color: var(--text); font-weight: 500; }
+  .project-name .arrow { color: var(--accent); }
+
   .posts-section { margin-top: 3rem; }
   .posts-section h2 {
     font-size: 1.9rem;
@@ -122,5 +187,6 @@ const langCount = Object.keys(languages).length;
   @media (max-width: 640px) {
     .posts li { flex-direction: column; align-items: flex-start; gap: 0.9rem; }
     .stat { padding: 0 1.5rem; }
+    .projects { grid-template-columns: 1fr; }
   }
 </style>
