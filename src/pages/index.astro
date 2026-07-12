@@ -1,5 +1,10 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <Base title="Nick's Tech Blog">
@@ -12,4 +17,26 @@ import Base from '../layouts/Base.astro';
     Out of ideas? Me too, sometimes. That's why there's a page where
     <a href="/ideas/">you can tell me what to build next</a>.
   </p>
+
+  <h2>Posts</h2>
+  <ul class="posts">
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+          <span class="meta">
+            {post.data.pubDate.toISOString().slice(0, 10)} ·{' '}
+            {post.data.lang === 'vi' ? '🇻🇳' : '🇬🇧'}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
 </Base>
+
+<style>
+  .posts { list-style: none; padding: 0; }
+  .posts li { margin-bottom: 0.75rem; }
+  .posts a { font-weight: 600; }
+  .meta { display: block; color: var(--muted); font-size: 0.85rem; }
+</style>
