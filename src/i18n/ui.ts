@@ -39,7 +39,8 @@ const vi: Record<keyof typeof en, string> = {
   'nav.blog': 'Blog',
   'nav.ideas': 'Góp ý tưởng',
   'footer.builtWith': 'Dựng bằng Astro',
-  'home.kicker': 'Phần mềm · Side project · Học công khai',
+  // Intentionally kept in English on both locales (owner's preference).
+  'home.kicker': 'Software · Side projects · Learning in public',
   'home.greeting': 'Chào, mình là Nick 👋',
   'home.intro':
     'Mình viết về phần mềm, side project và những thứ học được trên đường. Bài viết bằng tiếng Việt hoặc tiếng Anh — tuỳ chủ đề.',
