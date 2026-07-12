@@ -13,9 +13,26 @@ const { Content } = await render(post);
 const date = post.data.pubDate.toISOString().slice(0, 10);
 const lang = postLang(post);
 const t = useTranslations(lang);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: date,
+  inLanguage: lang,
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
+  image: new URL('/og.png', Astro.site).toString(),
+  author: { '@type': 'Person', name: 'Nick', url: Astro.site?.toString() },
+};
 ---
 
-<Base title={`${post.data.title} · ${t('site.name')}`} description={post.data.description} ogType="article">
+<Base
+  title={`${post.data.title} · ${t('site.name')}`}
+  description={post.data.description}
+  ogType="article"
+  schema={schema}
+>
   <article class="prose">
     <p class="top-meta">
       <time datetime={date}>{date}</time>
