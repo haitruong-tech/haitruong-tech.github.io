@@ -8,6 +8,7 @@ export type Lang = keyof typeof languages;
 export const defaultLang: Lang = 'en';
 
 const en = {
+  'site.name': "Nick's Tech Blog",
   'site.description': "Nick's notes on software and side projects.",
   'nav.blog': 'Blog',
   'nav.ideas': 'Suggest an idea',
@@ -35,6 +36,7 @@ const en = {
 } as const;
 
 const vi: Record<keyof typeof en, string> = {
+  'site.name': 'Blog của Nick',
   'site.description': 'Ghi chép của Nick về phần mềm và side project.',
   'nav.blog': 'Blog',
   'nav.ideas': 'Góp ý tưởng',
@@ -52,7 +54,7 @@ const vi: Record<keyof typeof en, string> = {
   'home.stats.languages': 'Ngôn ngữ',
   'home.stats.ideas': 'Ý tưởng chờ bạn',
   'post.read': 'Đọc',
-  'ideas.title': "Góp ý tưởng · Nick's Tech Blog",
+  'ideas.title': 'Góp ý tưởng · Blog của Nick',
   'ideas.description': 'Nói cho mình biết nên làm gì hoặc viết gì tiếp theo.',
   'ideas.heading': 'Mình nên làm gì tiếp theo? 🤔',
   'ideas.p1': 'Đôi khi mình thật sự không biết nên làm gì. Thay vì tự đoán, mình hỏi thẳng bạn: ',

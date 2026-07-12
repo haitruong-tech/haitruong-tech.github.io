@@ -10,7 +10,7 @@ const posts = await getPosts(lang);
 const langCount = Object.keys(languages).length;
 ---
 
-<Base title="Nick's Tech Blog">
+<Base title={t('site.name')}>
   <section class="hero">
     <span class="badge">{t('home.kicker')}</span>
     <h1>{t('home.greeting')}</h1>
