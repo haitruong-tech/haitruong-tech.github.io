@@ -31,9 +31,11 @@ const en = {
   'about.p1':
     "By day I'm a fullstack developer at Golden Owl Solutions, where I also mentor junior developers and serve as vice leader of the dev team — reviewing code, unblocking teammates, and helping people grow is a big part of what I enjoy. My toolbox is JavaScript end to end: Nuxt, Vue and React on the frontend; Node, Express and NestJS on the backend.",
   'about.p2':
-    "Right now most of my time goes into real estate analytics — products that turn messy property data into something people can actually use:",
+    "Right now most of my time goes into real estate analytics — products that turn messy property data into something people can actually use: dashboards for market insight, pipelines that clean and crunch listing data, and tooling that makes an agent's day a little less painful. The three I spend most of my days on:",
   'about.p3':
     "Outside of work: an IELTS 7.0 certificate, a habit of teaching myself whatever looks interesting, a weakness for music with a hook that won't let go, and a piano I'm about to start learning. This blog is where all of that leaks out — and if a post here saves you an afternoon of debugging, it did its job.",
+  'about.p4':
+    "If you're into JavaScript, product engineering, or just curious what learning in public looks like, stick around. New posts land in both Vietnamese and English, and the topics often come straight from reader suggestions — the ideas page genuinely decides what I build next, so don't be shy about dropping yours in.",
   'about.stackLabel': 'Main stack',
   'about.projectsLabel': 'Working on',
   'ideas.title': "Suggest an idea · Nick's Tech Blog",
@@ -71,9 +73,11 @@ const vi: Record<keyof typeof en, string> = {
   'about.p1':
     'Ban ngày mình là fullstack developer tại Golden Owl Solutions, kiêm mentor cho các bạn junior và vice leader của team dev — review code, gỡ vướng cho đồng đội và nhìn mọi người tiến bộ là phần mình thích nhất của công việc. Đồ nghề là JavaScript từ đầu tới cuối: Nuxt, Vue, React phía frontend; Node, Express, NestJS phía backend.',
   'about.p2':
-    'Hiện tại phần lớn thời gian mình dành cho real estate analytics — những sản phẩm biến dữ liệu bất động sản lộn xộn thành thứ dùng được:',
+    'Hiện tại phần lớn thời gian mình dành cho real estate analytics — những sản phẩm biến dữ liệu bất động sản lộn xộn thành thứ dùng được: dashboard cho market insight, pipeline làm sạch và xử lý dữ liệu listing, và công cụ giúp một ngày của agent đỡ cực hơn. Ba sản phẩm mình dành nhiều thời gian nhất:',
   'about.p3':
     'Ngoài công việc: IELTS 7.0, thói quen tự học bất cứ thứ gì trông thú vị, mê những bản nhạc có giai điệu lôi cuốn không dứt ra được, và một cây piano sắp bắt đầu học. Blog này là nơi tất cả những thứ đó tràn ra — và nếu một bài viết ở đây giúp bạn tiết kiệm được một buổi chiều debug thì nó đã hoàn thành nhiệm vụ.',
+  'about.p4':
+    'Nếu bạn thích JavaScript, thích chuyện xây sản phẩm, hoặc đơn giản tò mò học công khai trông như thế nào, thì ở lại chơi nhé. Bài mới luôn có cả tiếng Việt lẫn tiếng Anh, và chủ đề thường đến thẳng từ góp ý của độc giả — trang ý tưởng quyết định thật sự thứ mình làm tiếp theo, nên đừng ngại thả ý tưởng của bạn vào đó.',
   'about.stackLabel': 'Stack chính',
   'about.projectsLabel': 'Đang làm',
   'ideas.title': 'Góp ý tưởng · Blog Webdev của Nick',

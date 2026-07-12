@@ -19,7 +19,8 @@ const PROJECTS = [
 ---
 
 <Base title={t('site.title')}>
-  <section class="hero">
+  <article class="home-intro">
+  <div class="hero">
     <span class="badge">{t('home.kicker')}</span>
     <h1>{t('home.greeting')}</h1>
     <p class="intro">{t('home.intro')}</p>
@@ -45,9 +46,9 @@ const PROJECTS = [
         <span class="label">{t('home.stats.ideas')}</span>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="about">
+  <div class="about">
     <span class="badge">{t('about.badge')}</span>
     <h2>{t('about.heading')}</h2>
     <p class="about-text">{t('about.p1')}</p>
@@ -69,7 +70,9 @@ const PROJECTS = [
       }
     </div>
     <p class="about-text">{t('about.p3')}</p>
-  </section>
+    <p class="about-text">{t('about.p4')}</p>
+  </div>
+  </article>
 
   <section class="posts-section">
     <span class="badge">{t('home.posts.badge')}</span>
