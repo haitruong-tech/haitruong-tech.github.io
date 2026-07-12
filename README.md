@@ -51,9 +51,18 @@ Site có 2 ngôn ngữ: `/` (English) và `/vi/` (tiếng Việt), dùng i18n bu
 
 Viewers comment/vote đề xuất ngay trên trang, đăng nhập bằng GitHub.
 
-## Deploy (miễn phí)
+## Deploy — GitHub Pages
 
-- **Vercel / Netlify**: import repo, framework tự nhận Astro, xong.
-- **GitHub Pages**: xem https://docs.astro.build/en/guides/deploy/github/
+Site chạy tại **https://haitruong-tech.github.io** (repo `haitruong-tech/haitruong-tech.github.io`). Mỗi lần push lên `main`, workflow `.github/workflows/deploy.yml` tự build và deploy.
 
-Nhớ sửa `site` trong `astro.config.mjs` thành domain thật.
+Lần đầu setup:
+
+1. Tạo repo **public** tên `haitruong-tech.github.io` trên GitHub (không chọn thêm README/gitignore).
+2. Push code (xem lệnh bên dưới).
+3. Vào repo **Settings → Pages → Source: GitHub Actions**.
+
+```bash
+git branch -M main
+git remote add origin git@github.com:haitruong-tech/haitruong-tech.github.io.git
+git push -u origin main
+```
