@@ -15,7 +15,7 @@ const lang = postLang(post);
 const t = useTranslations(lang);
 ---
 
-<Base title={`${post.data.title} · ${t('site.name')}`} description={post.data.description}>
+<Base title={`${post.data.title} · ${t('site.name')}`} description={post.data.description} ogType="article">
   <article class="prose">
     <p class="top-meta">
       <time datetime={date}>{date}</time>
