@@ -11,11 +11,9 @@ import {
 interface Props {
   title: string;
   description?: string;
-  /** Override the UI language (used by post pages, which live on unprefixed URLs). */
-  lang?: Lang;
 }
 
-const lang: Lang = Astro.props.lang ?? ((Astro.currentLocale ?? defaultLang) as Lang);
+const lang: Lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 const { title, description = t('site.description') } = Astro.props;
 

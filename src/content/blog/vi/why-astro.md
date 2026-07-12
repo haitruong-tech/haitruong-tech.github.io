@@ -2,7 +2,6 @@
 title: "Vì sao mình chọn Astro cho blog này"
 description: "So sánh nhanh các lựa chọn khi làm blog cá nhân năm 2026, và lý do Astro thắng."
 pubDate: 2026-07-12
-lang: vi
 ---
 
 Khi bắt tay làm blog này, mình cân nhắc vài lựa chọn quen thuộc:

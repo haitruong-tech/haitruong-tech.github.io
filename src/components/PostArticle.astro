@@ -1,24 +1,23 @@
 ---
-import { getCollection, render } from 'astro:content';
-import Base from '../../layouts/Base.astro';
-import { localizePath, useTranslations } from '../../i18n/ui';
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { localizePath, useTranslations } from '../i18n/ui';
+import { postLang, type BlogPost } from '../lib/blog';
 
-export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
-  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+interface Props {
+  post: BlogPost;
 }
 
 const { post } = Astro.props;
 const { Content } = await render(post);
 const date = post.data.pubDate.toISOString().slice(0, 10);
-const lang = post.data.lang;
+const lang = postLang(post);
 const t = useTranslations(lang);
 ---
 
-<Base title={post.data.title} description={post.data.description} lang={lang}>
+<Base title={post.data.title} description={post.data.description}>
   <article class="prose">
     <p class="top-meta">
-      <span class="badge">{lang === 'vi' ? 'Tiếng Việt' : 'English'}</span>
       <time datetime={date}>{date}</time>
     </p>
     <h1>{post.data.title}</h1>
@@ -32,14 +31,7 @@ const t = useTranslations(lang);
 </Base>
 
 <style>
-  .top-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    color: var(--meta);
-    font-size: 0.85rem;
-    margin: 1.5rem 0 1rem;
-  }
+  .top-meta { color: var(--meta); font-size: 0.85rem; margin: 1.5rem 0 1rem; }
   .prose h1 {
     font-size: clamp(2rem, 5vw, 2.8rem);
     margin: 0.5rem 0 1rem;

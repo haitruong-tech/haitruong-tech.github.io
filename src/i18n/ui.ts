@@ -71,9 +71,11 @@ export function useTranslations(lang: Lang) {
 }
 
 /**
- * Pages that physically exist in every locale.
+ * Static pages that physically exist in every locale.
  * When you localize a new page (add a file under src/pages/vi/), add its
  * unprefixed path here so the language switcher and hreflang tags pick it up.
+ * Blog posts don't belong here — every post has a version in every locale
+ * (enforced by src/lib/blog.ts), so /blog/... paths translate automatically.
  */
 export const localizedPages = ['/', '/ideas/'];
 
@@ -86,5 +88,6 @@ export function localizePath(path: string, lang: Lang): string {
 export function translatePath(pathname: string, target: Lang): string | null {
   const bare = pathname.replace(/^\/vi(?=\/|$)/, '') || '/';
   const normalized = bare.endsWith('/') ? bare : `${bare}/`;
+  if (normalized.startsWith('/blog/')) return localizePath(normalized, target);
   return localizedPages.includes(normalized) ? localizePath(normalized, target) : null;
 }

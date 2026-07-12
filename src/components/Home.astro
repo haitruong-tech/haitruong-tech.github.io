@@ -1,15 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { defaultLang, localizePath, useTranslations, type Lang } from '../i18n/ui';
+import { defaultLang, languages, localizePath, useTranslations, type Lang } from '../i18n/ui';
+import { getPosts, postSlug } from '../lib/blog';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
-const langCount = new Set(posts.map((p) => p.data.lang)).size;
+const posts = await getPosts(lang);
+const langCount = Object.keys(languages).length;
 ---
 
 <Base title="Nick's Tech Blog">
@@ -53,15 +51,13 @@ const langCount = new Set(posts.map((p) => p.data.lang)).size;
                 <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>
                   {post.data.pubDate.toISOString().slice(0, 10)}
                 </time>
-                {' · '}
-                {post.data.lang === 'vi' ? 'Tiếng Việt' : 'English'}
               </p>
               <h3>
-                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+                <a href={localizePath(`/blog/${postSlug(post)}/`, lang)}>{post.data.title}</a>
               </h3>
               <p class="desc">{post.data.description}</p>
             </div>
-            <a href={`/blog/${post.id}/`} class="btn read-btn">
+            <a href={localizePath(`/blog/${postSlug(post)}/`, lang)} class="btn read-btn">
               {t('post.read')} <span class="arrow">↗</span>
             </a>
           </li>

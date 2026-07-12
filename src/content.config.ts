@@ -4,11 +4,11 @@ import { z } from 'astro/zod';
 
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  // Language comes from the folder (en/ or vi/), not frontmatter — see src/lib/blog.ts.
   schema: z.object({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
-    lang: z.enum(['vi', 'en']).default('en'),
     draft: z.boolean().default(false),
   }),
 });
