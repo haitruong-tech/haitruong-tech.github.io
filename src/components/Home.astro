@@ -9,34 +9,122 @@ const t = useTranslations(lang);
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+const langCount = new Set(posts.map((p) => p.data.lang)).size;
 ---
 
 <Base title="Nick's Tech Blog">
-  <h1>{t('home.greeting')}</h1>
-  <p>{t('home.intro')}</p>
-  <p>
-    {t('home.ideas.before')}<a href={localizePath('/ideas/', lang)}>{t('home.ideas.link')}</a>{t('home.ideas.after')}
-  </p>
+  <section class="hero">
+    <span class="badge">{t('home.kicker')}</span>
+    <h1>{t('home.greeting')}</h1>
+    <p class="intro">{t('home.intro')}</p>
+    <p class="intro">
+      {t('home.ideas.before')}<a href={localizePath('/ideas/', lang)}>{t('home.ideas.link')}</a>{t('home.ideas.after')}
+    </p>
+    <div class="actions">
+      <a href={localizePath('/ideas/', lang)} class="btn btn-accent">
+        {t('nav.ideas')} <span class="arrow">↗</span>
+      </a>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <span class="num">{posts.length}<span class="plus">+</span></span>
+        <span class="label">{t('home.posts')}</span>
+      </div>
+      <div class="stat">
+        <span class="num">{langCount}</span>
+        <span class="label">{t('home.stats.languages')}</span>
+      </div>
+      <div class="stat">
+        <span class="num"><span class="plus">∞</span></span>
+        <span class="label">{t('home.stats.ideas')}</span>
+      </div>
+    </div>
+  </section>
 
-  <h2>{t('home.posts')}</h2>
-  <ul class="posts">
-    {
-      posts.map((post) => (
-        <li>
-          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
-          <span class="meta">
-            {post.data.pubDate.toISOString().slice(0, 10)} ·{' '}
-            {post.data.lang === 'vi' ? '🇻🇳' : '🇬🇧'}
-          </span>
-        </li>
-      ))
-    }
-  </ul>
+  <section class="posts-section">
+    <span class="badge">{t('home.posts.badge')}</span>
+    <h2>{t('home.posts')}</h2>
+    <ul class="posts">
+      {
+        posts.map((post) => (
+          <li>
+            <div class="post-main">
+              <p class="meta">
+                <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>
+                  {post.data.pubDate.toISOString().slice(0, 10)}
+                </time>
+                {' · '}
+                {post.data.lang === 'vi' ? 'Tiếng Việt' : 'English'}
+              </p>
+              <h3>
+                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+              </h3>
+              <p class="desc">{post.data.description}</p>
+            </div>
+            <a href={`/blog/${post.id}/`} class="btn read-btn">
+              {t('post.read')} <span class="arrow">↗</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </Base>
 
 <style>
-  .posts { list-style: none; padding: 0; }
-  .posts li { margin-bottom: 0.75rem; }
-  .posts a { font-weight: 600; }
-  .meta { display: block; color: var(--muted); font-size: 0.85rem; }
+  .hero {
+    padding: 2.5rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    margin: 1.2rem 0 1rem;
+  }
+  .intro { max-width: 42rem; margin: 0.5rem 0; }
+  .actions { margin-top: 1.75rem; }
+
+  .stats { display: flex; flex-wrap: wrap; margin-top: 2.75rem; }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2.5rem;
+    border-left: 1px solid var(--border);
+  }
+  .stat:first-child { padding-left: 0; border-left: none; }
+  .num {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .plus { color: var(--accent); }
+  .label { color: var(--meta); font-size: 0.85rem; }
+
+  .posts-section { margin-top: 3rem; }
+  .posts-section h2 {
+    font-size: 1.9rem;
+    margin: 0.9rem 0 0.5rem;
+  }
+  .posts { list-style: none; padding: 0; margin: 0; }
+  .posts li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .meta { color: var(--meta); font-size: 0.85rem; margin: 0; }
+  .posts h3 { font-size: 1.3rem; margin: 0.35rem 0; }
+  .posts h3 a { color: var(--text); }
+  .posts h3 a:hover { color: var(--accent); text-decoration: none; }
+  .desc { margin: 0; font-size: 0.95rem; }
+  .read-btn { flex-shrink: 0; }
+
+  @media (max-width: 640px) {
+    .posts li { flex-direction: column; align-items: flex-start; gap: 0.9rem; }
+    .stat { padding: 0 1.5rem; }
+  }
 </style>
