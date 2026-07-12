@@ -9,6 +9,7 @@ export const defaultLang: Lang = 'en';
 
 const en = {
   'site.name': "Nick's Tech Blog",
+  'site.title': "Nick's Tech Blog · Fullstack JavaScript & Side Projects",
   'site.description': "Nick's notes on software and side projects.",
   'nav.blog': 'Blog',
   'nav.ideas': 'Suggest an idea',
@@ -34,7 +35,7 @@ const en = {
   'about.p3':
     "Outside of work: an IELTS 7.0 certificate, a habit of teaching myself whatever looks interesting, a weakness for music with a hook that won't let go, and a piano I'm about to start learning. This blog is where all of that leaks out — and if a post here saves you an afternoon of debugging, it did its job.",
   'about.stackLabel': 'Main stack',
-  'about.projectsLabel': 'Currently building',
+  'about.projectsLabel': 'Working on',
   'ideas.title': "Suggest an idea · Nick's Tech Blog",
   'ideas.description': 'Tell me what I should build or write about next.',
   'ideas.heading': 'What should I build next? 🤔',
@@ -46,7 +47,8 @@ const en = {
 } as const;
 
 const vi: Record<keyof typeof en, string> = {
-  'site.name': 'Blog của Nick',
+  'site.name': 'Blog Webdev của Nick',
+  'site.title': 'Blog Webdev của Nick · Fullstack JavaScript & Side Project',
   'site.description': 'Ghi chép của Nick về phần mềm và side project.',
   'nav.blog': 'Blog',
   'nav.ideas': 'Góp ý tưởng',
@@ -74,7 +76,7 @@ const vi: Record<keyof typeof en, string> = {
     'Ngoài công việc: IELTS 7.0, thói quen tự học bất cứ thứ gì trông thú vị, mê những bản nhạc có giai điệu lôi cuốn không dứt ra được, và một cây piano sắp bắt đầu học. Blog này là nơi tất cả những thứ đó tràn ra — và nếu một bài viết ở đây giúp bạn tiết kiệm được một buổi chiều debug thì nó đã hoàn thành nhiệm vụ.',
   'about.stackLabel': 'Stack chính',
   'about.projectsLabel': 'Đang làm',
-  'ideas.title': 'Góp ý tưởng · Blog của Nick',
+  'ideas.title': 'Góp ý tưởng · Blog Webdev của Nick',
   'ideas.description': 'Nói cho mình biết nên làm gì hoặc viết gì tiếp theo.',
   'ideas.heading': 'Mình nên làm gì tiếp theo? 🤔',
   'ideas.p1': 'Đôi khi mình thật sự không biết nên làm gì. Thay vì tự đoán, mình hỏi thẳng bạn: ',
