@@ -1,27 +1,52 @@
 ---
+import {
+  defaultLang,
+  languages,
+  localizePath,
+  translatePath,
+  useTranslations,
+  type Lang,
+} from '../i18n/ui';
+
 interface Props {
   title: string;
   description?: string;
+  /** Override the UI language (used by post pages, which live on unprefixed URLs). */
+  lang?: Lang;
 }
 
-const { title, description = "Nick's notes on software and side projects." } = Astro.props;
+const lang: Lang = Astro.props.lang ?? ((Astro.currentLocale ?? defaultLang) as Lang);
+const t = useTranslations(lang);
+const { title, description = t('site.description') } = Astro.props;
+
+const otherLang = (Object.keys(languages) as Lang[]).find((l) => l !== lang)!;
+const switchHref = translatePath(Astro.url.pathname, otherLang) ?? localizePath('/', otherLang);
+const hasCounterpart = translatePath(Astro.url.pathname, lang) !== null;
+const alternates = hasCounterpart
+  ? (Object.keys(languages) as Lang[]).map((l) => ({
+      hreflang: l,
+      href: new URL(translatePath(Astro.url.pathname, l)!, Astro.site),
+    }))
+  : [];
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
     <title>{title}</title>
   </head>
   <body>
     <header>
       <nav>
-        <a href="/" class="brand">nick<span class="accent">.log</span></a>
+        <a href={localizePath('/', lang)} class="brand">nick<span class="accent">.log</span></a>
         <div class="links">
-          <a href="/">Blog</a>
-          <a href="/ideas/">Suggest an idea</a>
+          <a href={localizePath('/', lang)}>{t('nav.blog')}</a>
+          <a href={localizePath('/ideas/', lang)}>{t('nav.ideas')}</a>
+          <a href={switchHref} class="lang-switch">{languages[otherLang]}</a>
         </div>
       </nav>
     </header>
@@ -31,7 +56,7 @@ const { title, description = "Nick's notes on software and side projects." } = A
     </main>
 
     <footer>
-      <p>© {new Date().getFullYear()} Nick · Built with Astro</p>
+      <p>© {new Date().getFullYear()} Nick · {t('footer.builtWith')}</p>
     </footer>
   </body>
 </html>
@@ -86,6 +111,7 @@ const { title, description = "Nick's notes on software and side projects." } = A
   .brand { font-weight: 700; font-size: 1.1rem; color: var(--text); }
   .brand .accent { color: var(--accent); }
   .links { display: flex; gap: 1.25rem; }
+  .lang-switch { color: var(--muted); font-size: 0.9rem; }
 
   main { min-height: 60vh; padding: 2rem 0; }
 

@@ -12,7 +12,7 @@ const { Content } = await render(post);
 const date = post.data.pubDate.toISOString().slice(0, 10);
 ---
 
-<Base title={post.data.title} description={post.data.description}>
+<Base title={post.data.title} description={post.data.description} lang={post.data.lang}>
   <article>
     <h1>{post.data.title}</h1>
     <p class="meta">
