@@ -26,6 +26,15 @@ draft: false    # true = không publish
 Nội dung bài viết...
 ```
 
+## i18n
+
+Site có 2 ngôn ngữ: `/` (English) và `/vi/` (tiếng Việt), dùng i18n built-in của Astro.
+
+- UI strings nằm hết trong `src/i18n/ui.ts` — thêm key mới phải thêm cả `en` lẫn `vi`.
+- Trang localized là wrapper mỏng: `src/pages/ideas.astro` và `src/pages/vi/ideas.astro` cùng render component trong `src/components/`.
+- Muốn localize trang mới: tạo component chung → 2 wrapper → thêm path vào `localizedPages` trong `ui.ts` (để switcher + hreflang hoạt động).
+- Bài viết không dịch — mỗi bài 1 ngôn ngữ (`lang` frontmatter), URL chung `/blog/...` cho cả 2 locale.
+
 ## Bật phần góp ý (trang /ideas/)
 
 1. Push repo này lên GitHub (public), bật **Discussions** trong Settings.
