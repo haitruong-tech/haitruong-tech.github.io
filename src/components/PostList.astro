@@ -88,6 +88,7 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
     padding: 1.6rem 0;
     border-bottom: 1px solid var(--border);
   }
+  .posts li[hidden] { display: none; }
   .meta {
     display: flex;
     align-items: center;
