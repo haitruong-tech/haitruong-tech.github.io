@@ -26,6 +26,7 @@ Frontmatter mỗi file:
 title: "Tiêu đề bài viết"
 description: "Mô tả ngắn cho SEO"
 pubDate: 2026-07-15
+tags: ["astro", "webdev"]   # slug thường, không dấu, giống nhau ở cả 2 file
 draft: false    # true = không publish (phải set cả 2 file)
 ---
 
