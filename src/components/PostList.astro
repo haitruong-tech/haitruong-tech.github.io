@@ -38,7 +38,9 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
               {post.data.pubDate.toISOString().slice(0, 10)}
             </time>
             {post.data.tags.map((tag) => (
-              <span class="tag">{tag}</span>
+              <a href={localizePath(`/blog/?tag=${tag}`, lang)} class="tag">
+                {tag}
+              </a>
             ))}
           </p>
           <h3>
@@ -110,14 +112,29 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
   // Tag filter — the only handwritten client-side JS on the site.
   const tabs = document.querySelectorAll<HTMLButtonElement>('.tag-tabs .tab');
   const items = document.querySelectorAll<HTMLLIElement>('.posts > li');
+
+  function applyFilter(tag: string) {
+    tabs.forEach((tab) => tab.classList.toggle('active', (tab.dataset.tag ?? '') === tag));
+    items.forEach((li) => {
+      const tags = (li.dataset.tags ?? '').split(' ');
+      li.hidden = tag !== '' && !tags.includes(tag);
+    });
+  }
+
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      tabs.forEach((other) => other.classList.toggle('active', other === tab));
       const tag = tab.dataset.tag ?? '';
-      items.forEach((li) => {
-        const tags = (li.dataset.tags ?? '').split(' ');
-        li.hidden = tag !== '' && !tags.includes(tag);
-      });
+      applyFilter(tag);
+      const url = new URL(location.href);
+      if (tag) url.searchParams.set('tag', tag);
+      else url.searchParams.delete('tag');
+      history.replaceState(null, '', url);
     });
   });
+
+  // Deep link: /blog/?tag=astro pre-selects that tab.
+  if (tabs.length > 0) {
+    const initial = new URLSearchParams(location.search).get('tag') ?? '';
+    if (initial && [...tabs].some((tab) => tab.dataset.tag === initial)) applyFilter(initial);
+  }
 </script>

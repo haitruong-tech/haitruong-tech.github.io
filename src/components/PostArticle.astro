@@ -36,7 +36,7 @@ const schema = {
   <article class="prose">
     <p class="top-meta">
       <time datetime={date}>{date}</time>
-      {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+      {post.data.tags.map((tag) => <a href={localizePath(`/blog/?tag=${tag}`, lang)} class="tag">{tag}</a>)}
     </p>
     <h1>{post.data.title}</h1>
     <p class="lead">{post.data.description}</p>
