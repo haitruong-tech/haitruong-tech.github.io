@@ -1,4 +1,4 @@
-# Blog của Hải Trương
+# Blog của Hải
 
 Blog cá nhân về tech, build bằng [Astro](https://astro.build). Có trang `/ideas/` để viewers đề xuất mình nên làm gì tiếp theo (chạy bằng [giscus](https://giscus.app) trên GitHub Discussions — không cần backend).
 

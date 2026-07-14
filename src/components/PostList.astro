@@ -1,0 +1,123 @@
+---
+import { defaultLang, localizePath, useTranslations, type Lang } from '../i18n/ui';
+import { postSlug, type BlogPost } from '../lib/blog';
+
+interface Props {
+  posts: BlogPost[];
+  /** Render the tag filter tabs above the list. */
+  showTabs?: boolean;
+}
+
+const { posts, showTabs = false } = Astro.props;
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t = useTranslations(lang);
+const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
+---
+
+{
+  showTabs && allTags.length > 0 && (
+    <div class="tag-tabs">
+      <button class="tab active" data-tag="">
+        {t('home.tags.all')}
+      </button>
+      {allTags.map((tag) => (
+        <button class="tab" data-tag={tag}>
+          {tag}
+        </button>
+      ))}
+    </div>
+  )
+}
+<ul class="posts">
+  {
+    posts.map((post) => (
+      <li data-tags={post.data.tags.join(' ')}>
+        <div class="post-main">
+          <p class="meta">
+            <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>
+              {post.data.pubDate.toISOString().slice(0, 10)}
+            </time>
+            {post.data.tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </p>
+          <h3>
+            <a href={localizePath(`/blog/${postSlug(post)}/`, lang)}>{post.data.title}</a>
+          </h3>
+          <p class="desc">{post.data.description}</p>
+        </div>
+        <a href={localizePath(`/blog/${postSlug(post)}/`, lang)} class="btn read-btn">
+          {t('post.read')} <span class="arrow">↗</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .tag-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 1rem 0 0.25rem;
+  }
+  .tab {
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.4rem 0.9rem;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active {
+    background: var(--panel);
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .posts { list-style: none; padding: 0; margin: 0; }
+  .posts li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    color: var(--meta);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  .posts h3 { font-size: 1.3rem; margin: 0.35rem 0; }
+  .posts h3 a { color: var(--text); }
+  .posts h3 a:hover { color: var(--accent); text-decoration: none; }
+  .desc { margin: 0; font-size: 0.95rem; }
+  .read-btn { flex-shrink: 0; }
+
+  @media (max-width: 640px) {
+    .posts li { flex-direction: column; align-items: flex-start; gap: 0.9rem; }
+  }
+</style>
+
+<script>
+  // Tag filter — the only handwritten client-side JS on the site.
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.tag-tabs .tab');
+  const items = document.querySelectorAll<HTMLLIElement>('.posts > li');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((other) => other.classList.toggle('active', other === tab));
+      const tag = tab.dataset.tag ?? '';
+      items.forEach((li) => {
+        const tags = (li.dataset.tags ?? '').split(' ');
+        li.hidden = tag !== '' && !tags.includes(tag);
+      });
+    });
+  });
+</script>

@@ -10,12 +10,12 @@ export const defaultLang: Lang = 'en';
 const en = {
   'site.name': 'Hai Truong',
   'site.title': 'Hai Truong · Fullstack JavaScript & Side Projects',
-  'site.description': "Hải Trương's notes on software and side projects.",
+  'site.description': "Hải's notes on software and side projects.",
   'nav.blog': 'Blog',
   'nav.ideas': 'Suggest an idea',
   'footer.builtWith': 'Built with Astro',
   'home.kicker': 'Webdev · Side projects · Learning in public',
-  'home.greeting': "Hi, I'm Hải Trương 👋",
+  'home.greeting': "Hi, I'm Hải 👋",
   'home.intro':
     "I'm a fullstack JavaScript developer. This is where I write about side projects and things I learn along the way — in Vietnamese or English, whichever fits. Expect build logs, lessons learned, and the occasional rabbit hole.",
   'home.ideas.before': "Out of ideas? Me too, sometimes. That's why there's a page where ",
@@ -52,13 +52,13 @@ const en = {
 const vi: Record<keyof typeof en, string> = {
   'site.name': 'Blog của Hai Truong',
   'site.title': 'Blog của Hai Truong · Fullstack JavaScript & Side Project',
-  'site.description': 'Ghi chép của Hải Trương về phần mềm và side project.',
+  'site.description': 'Ghi chép của Hải về phần mềm và side project.',
   'nav.blog': 'Blog',
   'nav.ideas': 'Góp ý tưởng',
   'footer.builtWith': 'Dựng bằng Astro',
   // Intentionally kept in English on both locales (owner's preference).
   'home.kicker': 'Webdev · Side projects · Learning in public',
-  'home.greeting': 'Chào, mình là Hải Trương 👋',
+  'home.greeting': 'Chào, mình là Hải 👋',
   'home.intro':
     'Mình là fullstack JavaScript developer. Đây là nơi mình viết về side project và những thứ học được trên đường — bằng tiếng Việt hoặc tiếng Anh, tuỳ chủ đề. Sẽ có build log, bài học rút ra, và thỉnh thoảng một cái hố mình lỡ sa chân vào.',
   'home.ideas.before': 'Hết ý tưởng? Đôi khi mình cũng vậy. Nên mới có một trang để ',
