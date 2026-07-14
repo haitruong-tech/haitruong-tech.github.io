@@ -86,6 +86,7 @@ const PROJECTS = [
                 <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>
                   {post.data.pubDate.toISOString().slice(0, 10)}
                 </time>
+                {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
               </p>
               <h3>
                 <a href={localizePath(`/blog/${postSlug(post)}/`, lang)}>{post.data.title}</a>
@@ -180,7 +181,15 @@ const PROJECTS = [
     padding: 1.6rem 0;
     border-bottom: 1px solid var(--border);
   }
-  .meta { color: var(--meta); font-size: 0.85rem; margin: 0; }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    color: var(--meta);
+    font-size: 0.85rem;
+    margin: 0;
+  }
   .posts h3 { font-size: 1.3rem; margin: 0.35rem 0; }
   .posts h3 a { color: var(--text); }
   .posts h3 a:hover { color: var(--accent); text-decoration: none; }

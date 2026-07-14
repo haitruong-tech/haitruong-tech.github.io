@@ -2,6 +2,7 @@
 title: "Why I chose Astro for this blog"
 description: "A quick comparison of personal-blog options in 2026, and why Astro won."
 pubDate: 2026-07-12
+tags: ["astro", "webdev"]
 ---
 
 When I started building this blog, I weighed the usual suspects:

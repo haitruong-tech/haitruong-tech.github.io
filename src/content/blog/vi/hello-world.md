@@ -2,6 +2,7 @@
 title: "Hello, world"
 description: "Blog này là gì, và vì sao bạn được quyền quyết định mình làm gì tiếp theo."
 pubDate: 2026-07-12
+tags: ["meta"]
 ---
 
 Chào mừng! Đây là nơi mình viết về phần mềm, side project, và bất cứ thứ gì mình đang vọc (hoặc đang làm hỏng).

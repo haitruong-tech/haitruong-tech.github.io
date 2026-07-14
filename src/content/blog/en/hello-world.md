@@ -2,6 +2,7 @@
 title: "Hello, world"
 description: "What this blog is, and why you get to decide what I build next."
 pubDate: 2026-07-12
+tags: ["meta"]
 ---
 
 Welcome! This is where I write about software, side projects, and whatever I'm currently breaking.

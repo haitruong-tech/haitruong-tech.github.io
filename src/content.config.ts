@@ -10,6 +10,8 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     draft: z.boolean().default(false),
+    /** Lowercase, language-neutral slugs — keep identical in both language files. */
+    tags: z.array(z.string()).default([]),
   }),
 });
 
