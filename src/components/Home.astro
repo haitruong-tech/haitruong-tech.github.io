@@ -8,6 +8,7 @@ const t = useTranslations(lang);
 
 const posts = await getPosts(lang);
 const langCount = Object.keys(languages).length;
+const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
 
 // Language-neutral proper nouns — not dictionary material.
 const STACK = ['Nuxt', 'Vue', 'React', 'Node', 'Express', 'NestJS'];
@@ -77,10 +78,24 @@ const PROJECTS = [
   <section class="posts-section">
     <span class="badge">{t('home.posts.badge')}</span>
     <h2>{t('home.posts')}</h2>
+    {
+      allTags.length > 0 && (
+        <div class="tag-tabs">
+          <button class="tab active" data-tag="">
+            {t('home.tags.all')}
+          </button>
+          {allTags.map((tag) => (
+            <button class="tab" data-tag={tag}>
+              {tag}
+            </button>
+          ))}
+        </div>
+      )
+    }
     <ul class="posts">
       {
         posts.map((post) => (
-          <li>
+          <li data-tags={post.data.tags.join(' ')}>
             <div class="post-main">
               <p class="meta">
                 <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>
@@ -172,6 +187,28 @@ const PROJECTS = [
     font-size: 1.9rem;
     margin: 0.9rem 0 0.5rem;
   }
+  .tag-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 1rem 0 0.25rem;
+  }
+  .tab {
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.4rem 0.9rem;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active {
+    background: var(--panel);
+    border-color: var(--border);
+    color: var(--text);
+  }
   .posts { list-style: none; padding: 0; margin: 0; }
   .posts li {
     display: flex;
@@ -202,3 +239,19 @@ const PROJECTS = [
     .projects { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  // Tag filter — the only handwritten client-side JS on the site.
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.tag-tabs .tab');
+  const items = document.querySelectorAll<HTMLLIElement>('.posts > li');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((other) => other.classList.toggle('active', other === tab));
+      const tag = tab.dataset.tag ?? '';
+      items.forEach((li) => {
+        const tags = (li.dataset.tags ?? '').split(' ');
+        li.hidden = tag !== '' && !tags.includes(tag);
+      });
+    });
+  });
+</script>
