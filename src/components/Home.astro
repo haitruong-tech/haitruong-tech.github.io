@@ -76,9 +76,16 @@ const PROJECTS = [
   </article>
 
   <section class="posts-section">
-    <span class="badge">{t('home.posts.badge')}</span>
-    <h2>{t('home.posts')}</h2>
-    <PostList posts={posts} showTabs />
+    <div class="section-head">
+      <div>
+        <span class="badge">{t('home.posts.badge')}</span>
+        <h2>{t('home.posts')}</h2>
+      </div>
+      <a href={localizePath('/blog/', lang)} class="btn">
+        {t('home.viewAll')} <span class="arrow">↗</span>
+      </a>
+    </div>
+    <PostList posts={posts.slice(0, 5)} />
   </section>
 </Base>
 
@@ -151,6 +158,14 @@ const PROJECTS = [
     font-size: 1.9rem;
     margin: 0.9rem 0 0.5rem;
   }
+  .section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .section-head .btn { margin-bottom: 0.6rem; }
   @media (max-width: 640px) {
     .stat { padding: 0 1.5rem; }
     .projects { grid-template-columns: 1fr; }

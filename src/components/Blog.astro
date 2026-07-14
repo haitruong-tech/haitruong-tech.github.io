@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import PostList from './PostList.astro';
+import { defaultLang, useTranslations, type Lang } from '../i18n/ui';
+import { getPosts } from '../lib/blog';
+
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t = useTranslations(lang);
+const posts = await getPosts(lang);
+---
+
+<Base title={t('blog.title')} description={t('blog.description')}>
+  <section class="blog-head">
+    <span class="badge">{t('blog.badge')}</span>
+    <h1>{t('blog.heading')}</h1>
+  </section>
+  <PostList posts={posts} showTabs />
+</Base>
+
+<style>
+  .blog-head { padding: 2.5rem 0 0.25rem; }
+  .blog-head h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin: 1rem 0 0.25rem;
+  }
+</style>
