@@ -239,6 +239,24 @@ const alternates = hasCounterpart
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   }
   .prose img { max-width: 100%; border-radius: var(--radius); }
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+  .prose th, .prose td {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+  .prose th {
+    background: var(--panel);
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-weight: 500;
+  }
+  .prose td { color: var(--muted); }
 
   /* ---- header ---- */
   header nav {
