@@ -5,6 +5,9 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://haitruong-tech.github.io',
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [
     sitemap({
       i18n: {
