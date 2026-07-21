@@ -6,9 +6,12 @@ interface Props {
   posts: BlogPost[];
   /** Render the tag filter tabs above the list. */
   showTabs?: boolean;
+  /** Heading level for each post title — match whatever precedes this list in the page outline. */
+  headingLevel?: 2 | 3;
 }
 
-const { posts, showTabs = false } = Astro.props;
+const { posts, showTabs = false, headingLevel = 3 } = Astro.props;
+const Heading = headingLevel === 2 ? 'h2' : 'h3';
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
@@ -43,9 +46,9 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
               </a>
             ))}
           </p>
-          <h3>
+          <Heading class="post-title">
             <a href={localizePath(`/blog/${postSlug(post)}/`, lang)}>{post.data.title}</a>
-          </h3>
+          </Heading>
           <p class="desc">{post.data.description}</p>
         </div>
         <a href={localizePath(`/blog/${postSlug(post)}/`, lang)} class="btn read-btn">
@@ -98,9 +101,9 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
     font-size: 0.85rem;
     margin: 0;
   }
-  .posts h3 { font-size: 1.3rem; margin: 0.35rem 0; }
-  .posts h3 a { color: var(--text); }
-  .posts h3 a:hover { color: var(--accent); text-decoration: none; }
+  .post-title { font-size: 1.3rem; margin: 0.35rem 0; }
+  .post-title a { color: var(--text); }
+  .post-title a:hover { color: var(--accent); text-decoration: none; }
   .desc { margin: 0; font-size: 0.95rem; }
   .read-btn { flex-shrink: 0; }
 

@@ -14,7 +14,7 @@ const posts = await getPosts(lang);
     <span class="badge">{t('blog.badge')}</span>
     <h1>{t('blog.heading')}</h1>
   </section>
-  <PostList posts={posts} showTabs />
+  <PostList posts={posts} showTabs headingLevel={2} />
 </Base>
 
 <style>
